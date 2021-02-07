@@ -5,7 +5,7 @@
 require_relative "lib/burner_email_db/version"
 
 Gem::Specification.new do |spec|
-  spec.authors     = ["Sergey Pedan", "Wes Boss"]
+  spec.authors     = ["Sergey Pedan", "Wes Bos"]
   spec.summary     =  "DB of burner email domains"
   spec.description =  "#{spec.summary}. Use as one of the steps in your email validations."
   spec.email       = ["sergey.pedan@gmail.com"]
