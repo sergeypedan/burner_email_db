@@ -1,35 +1,68 @@
-# BurnerEmailDb
+# Burner email DB
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/burner_email_db`. To experiment with that code, run `bin/console` for an interactive prompt.
+A very long list (119 261) of burner email domains, packaged for Ruby gems.
 
-TODO: Delete this and the text above, and describe your gem
+## Sourse
+
+Copied with much respect from Wes Boss’s [repo](https://github.com/wesbos/burner-email-providers).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's `Gemfile`:
 
 ```ruby
-gem 'burner_email_db'
+gem "burner_email_db"
 ```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install burner_email_db
 
 ## Usage
 
-TODO: Write usage instructions here
+### Just list everything
 
-## Development
+```ruby
+BurnerEmailDb.domains #=> ["0-00.usa.cc", "0-180.com", ...]
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### ActiveModel validation
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+class User
+  validates :email, exclusion: { in: BurnerEmailDb.domains }
+end
+```
 
-## Contributing
+### ActiveModel validator
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/burner_email_db.
+You could write a validator:
+
+```ruby
+class BurnerEmailValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute_name, email_address)
+    return if email_address.blank? # validate presence separately
+    record.errors.add attribute_name, :disposable_email if disposable?(email_address)
+  end
+
+  def disposable?(email_address)
+    BurnerEmailDb.domains.any? { |domain| email_address.include? domain }
+  end
+end
+
+# Перевод нужно добавить в:
+# ru:
+#   activemodel:
+#     errors:
+#       messages:
+#         invalid_format: некорректного формата
+#         disposable_email: в сервисе одноразовых email-адресов
+```
+
+and then use it like so:
+
+```ruby
+class User
+  validates :email, presence: true, burner_email: true
+end
+```
+
+### Dry validation
+
+WIP, I promise, Piotr!
