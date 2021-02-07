@@ -45,14 +45,18 @@ class BurnerEmailValidator < ActiveModel::EachValidator
     BurnerEmailDB.domains.any? { |domain| email_address.include? domain }
   end
 end
+```
 
-# Перевод нужно добавить в:
-# ru:
-#   activemodel:
-#     errors:
-#       messages:
-#         invalid_format: некорректного формата
-#         disposable_email: в сервисе одноразовых email-адресов
+Add translations:
+
+```yaml
+---
+ru:
+  activemodel:
+    errors:
+      messages:
+        invalid_format: некорректного формата
+        disposable_email: в сервисе одноразовых email-адресов
 ```
 
 and then use it like so:
