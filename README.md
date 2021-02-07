@@ -42,7 +42,7 @@ class BurnerEmailValidator < ActiveModel::EachValidator
     record.errors.add attribute_name, :disposable_email if disposable?(address)
   end
 
-  def disposable?(address)
+  private def disposable?(address)
     BurnerEmailDB.domains.any? { |burner_domain| address.include? burner_domain }
   end
 
