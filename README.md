@@ -54,10 +54,9 @@ Add translations:
 ```yaml
 ---
 ru:
-  activemodel:
-    errors:
-      messages:
-        disposable_email: в сервисе одноразовых email-адресов
+  errors:
+    messages:
+      disposable_email: в сервисе одноразовых email-адресов
 ```
 
 and then use it like so:
