@@ -36,14 +36,16 @@ You could write a validator:
 
 ```ruby
 class BurnerEmailValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute_name, email_address)
-    return if email_address.blank? # validate presence separately
-    record.errors.add attribute_name, :disposable_email if disposable?(email_address)
+
+  def validate_each(record, attribute_name, address)
+    return if address.blank? # validate presence separately
+    record.errors.add attribute_name, :disposable_email if disposable?(address)
   end
 
-  def disposable?(email_address)
-    BurnerEmailDB.domains.any? { |domain| email_address.include? domain }
+  def disposable?(address)
+    BurnerEmailDB.domains.any? { |burner_domain| address.include? burner_domain }
   end
+
 end
 ```
 
@@ -55,7 +57,6 @@ ru:
   activemodel:
     errors:
       messages:
-        invalid_format: некорректного формата
         disposable_email: в сервисе одноразовых email-адресов
 ```
 
