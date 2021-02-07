@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage    =  "TODO: Put your gem's website or public repo URL here."
   spec.license     =  "MIT"
   spec.name        =  "burner_email_db"
-  spec.version     =   BurnerEmailDb::VERSION
+  spec.version     =   BurnerEmailDB::VERSION
 
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 

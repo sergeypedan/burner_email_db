@@ -19,14 +19,14 @@ gem "burner_email_db"
 ### Just list everything
 
 ```ruby
-BurnerEmailDb.domains #=> ["0-00.usa.cc", "0-180.com", ...]
+BurnerEmailDB.domains #=> ["0-00.usa.cc", "0-180.com", ...]
 ```
 
 ### ActiveModel validation
 
 ```ruby
 class User
-  validates :email, exclusion: { in: BurnerEmailDb.domains }
+  validates :email, exclusion: { in: BurnerEmailDB.domains }
 end
 ```
 
@@ -42,7 +42,7 @@ class BurnerEmailValidator < ActiveModel::EachValidator
   end
 
   def disposable?(email_address)
-    BurnerEmailDb.domains.any? { |domain| email_address.include? domain }
+    BurnerEmailDB.domains.any? { |domain| email_address.include? domain }
   end
 end
 

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe BurnerEmailDb do
+RSpec.describe BurnerEmailDB do
   it "has a version number" do
-    expect(BurnerEmailDb::VERSION).not_to be nil
+    expect(BurnerEmailDB::VERSION).not_to be nil
   end
 
   describe ".domains" do

@@ -2,7 +2,7 @@
 
 require_relative "burner_email_db/version"
 
-module BurnerEmailDb
+module BurnerEmailDB
 
   FILE_PATH = File.expand_path("../burner_email_db/db.txt", __FILE__).freeze
 
