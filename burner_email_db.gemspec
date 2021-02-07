@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary     =  "DB of burner email domains"
   spec.description =  "#{spec.summary}. Use as one of the steps in your email validations."
   spec.email       = ["sergey.pedan@gmail.com"]
-  spec.homepage    =  "TODO: Put your gem's website or public repo URL here."
+  spec.homepage    =  "https://github.com/sergeypedan/burner_email_db"
   spec.license     =  "MIT"
   spec.name        =  "burner_email_db"
   spec.version     =   BurnerEmailDB::VERSION
