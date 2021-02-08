@@ -1,5 +1,8 @@
 # Burner email DB
 
+[![Gem Version](https://badge.fury.io/rb/burner_email_db.svg)](https://badge.fury.io/rb/burner_email_db)
+[![Build Status](https://travis-ci.org/sergeypedan/burner_email_db.svg?branch=master)](https://travis-ci.org/sergeypedan/burner_email_db)
+
 A very long list (119 261) of burner email domains, packaged for Ruby gems.
 
 ## Sourse
