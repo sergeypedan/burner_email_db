@@ -45,7 +45,8 @@ class BurnerEmailValidator < ActiveModel::EachValidator
     record.errors.add attribute_name, :disposable_email if disposable?(address)
   end
 
-  private def disposable?(address)
+  private def disposable?(address_with_unknown_case)
+    address = address_with_unknown_case.downcase
     BurnerEmailDB.domains.any? { |burner_domain| address.include? burner_domain }
   end
 
