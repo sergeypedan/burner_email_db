@@ -79,3 +79,8 @@ WIP, I promise, Piotr!
 
 - https://github.com/disposable/disposable
 - https://open.kickbox.io
+
+## How to add new
+
+1. Copy the new domains into a file `./new-domains.txt`
+1. Run `ruby add.rb`
