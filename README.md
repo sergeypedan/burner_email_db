@@ -74,3 +74,8 @@ end
 ### Dry validation
 
 WIP, I promise, Piotr!
+
+## Alternatives
+
+- https://github.com/disposable/disposable
+- https://open.kickbox.io
