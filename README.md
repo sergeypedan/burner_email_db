@@ -7,7 +7,11 @@ A very long list (119 261) of burner email domains, packaged for Ruby gems.
 
 ## Sourse
 
-Copied with much respect from Wes Bos’s [repo](https://github.com/wesbos/burner-email-providers).
+Copied with much respect from
+
+- Wes Bos’s [repo](https://github.com/wesbos/burner-email-providers)
+- https://disposable.github.io/disposable-email-domains/domains.txt
+- https://github.com/disposable/disposable/blob/master/blacklist.txt
 
 ## Installation
 
